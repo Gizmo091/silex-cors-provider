@@ -1,5 +1,5 @@
 {
-    "name": "jdesrosiers/silex-cors-provider",
+    "name": "zmog/silex-cors-provider",
     "description": "A silex service provider that adds CORS services to silex",
     "keywords": ["silex", "cors", "cross", "origin", "resource", "sharing", "service", "provider"],
     "license": "MIT",
@@ -10,10 +10,10 @@
         }
     ],
     "require": {
-        "silex/silex": "~2.0"
+        "zmog/silex": "dev-php81"
     },
     "require-dev": {
-        "symfony/browser-kit": "2.3.*",
+        "symfony/browser-kit": "5.4.*",
         "phpunit/phpunit": "5.*"
     },
     "autoload": {

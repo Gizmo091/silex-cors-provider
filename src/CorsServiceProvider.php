@@ -8,11 +8,7 @@ use Silex\Api\BootableProviderInterface;
 use Silex\Application;
 use Silex\Controller;
 use Symfony\Component\HttpFoundation\Response;
-<<<<<<< HEAD
-=======
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;
->>>>>>> 95a3dd6 (s)
-use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpKernel\KernelEvents;
@@ -29,17 +25,10 @@ class CorsServiceProvider implements ServiceProviderInterface, BootableProviderI
      */
     public function boot(Application $app)
     {
-<<<<<<< HEAD
-        $app->on(KernelEvents::EXCEPTION, function (GetResponseForExceptionEvent $event) {
-            $e = $event->getException();
-            if ($e instanceof MethodNotAllowedHttpException && $e->getHeaders()["Allow"] === "OPTIONS") {
-                $event->setException(new NotFoundHttpException("No route found for \"{$event->getRequest()->getMethod()} {$event->getRequest()->getPathInfo()}\""));
-=======
         $app->on(KernelEvents::EXCEPTION, function (ExceptionEvent $event) {
             $e = $event->getThrowable();
             if ($e instanceof MethodNotAllowedHttpException && $e->getHeaders()["Allow"] === "OPTIONS") {
                 $event->setThrowable(new NotFoundHttpException("No route found for \"{$event->getRequest()->getMethod()} {$event->getRequest()->getPathInfo()}\""));
->>>>>>> 95a3dd6 (s)
             }
         });
     }
